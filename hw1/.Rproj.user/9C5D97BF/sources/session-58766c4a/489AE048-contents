@@ -1,0 +1,169 @@
+---
+title: "Homework Assignment 1"
+author: "Santiago Garcia"
+date: "April 15, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+## Include the command to load the data here!!!!
+```
+
+* * *
+
+## **Question 1 (Exercise 1.2 on Page 11):**  
+
+Write your answer for question 1 here. Since the question has four parts, use: 
+
+a) $\frac{66 (improved)}{85 (total)} = 77.6%$
+
+b) $\frac{65 (improved)}{81 (total)} = 80%$
+
+c) The no treatment or control group had a higher percentage of patients who experience improvements with a 80% improvement
+
+d) Since the difference of these two is less than 10% (3%) it might be possible that this difference was just due to chance
+
+
+## **Question 2 (Exercise 1.4 on Page 19):** 
+
+a) Does the Buteyko method help reduce asthma symptoms and improve quality of life?
+
+b) patient with asthma raging from age **18-69**, and there were a total of **600** observations 
+
+c) 
+
+| Age                | Quality Of Life     | Activity            | Asthma symptoms     | medication reduction |
+| :----------------  | :---------------    | :-----------------  | :------------------ | :------------------- |
+| Numerical discrete | Categorical ordinal | Categorical ordinal | Categorical ordinal | Categorical ordinal  |
+
+
+
+
+
+## Question 3 (Exercise 1.6 on Page 20):  
+
+
+a) how does socio-economic status affect the doing of unethical behaviors?
+
+b) The subjects are **129** of undergraduates studying at the University of California Berkeley
+
+c) 
+
+| **High/low class** | **Candies taken** | 
+| :-------------- | :------------- | 
+| Categorical ordinal | Numerical discrete | 
+
+
+
+## Question 4 (Exercise 1.12 on Page 21):  
+
+a) 
+
+- Year
+- Percentage in the US, Mexico, Canada who agree with arms control and disarmament 
+- Percentage who agree with Colonialism
+
+
+
+
+## Question 5 (Exercise 1.16 on Page 29): 
+
+a) The population of interest I think would be college students or students are Berkeley 
+b) The results of the study can't be generalized to the population because their sampling method was not probability sampling, so these sample could have a major bias. Further, this study can't be used to establish causal relationships since, this is an observational study, and not an experimental one. 
+
+
+## Question 6 (Exercise 1.28 on Page 31): 
+
+a) We can't determine smoking causes dementia from this study, because this is an observational study, thus there can be many lurking variables that could cases the results of the survey to become skewed. Further, the sampling method for this study is a non probability sampling, thus there could be major biases in the sample since they are not being selected randomly.
+
+
+
+## Question 7 (Exercise 1.38 on Page 36): 
+
+
+a) Randomly sample 200 household from the city. 
+
+**Pros:**
+
+- It would be cost/time effective 
+
+**Cons:**
+
+- The sample could have major bias, since there is no account for, lower and higher income houses
+
+b) Divide the city into 20 neighborhoods, and sample 10 households from each neighborhood.
+
+**Pros:**
+
+- The sample would be representative of the population, since we are taking into account all sectors of the neighborhood 
+
+**Cons:**
+
+- This would take a lot of time to do the process of separating the neighboorhod into part, might cost more money
+
+c) Divide the city into 20 neighborhoods, randomly sample 3 neighborhoods, and then sample all households from those 3 neighborhoods.
+
+**Pros:**
+
+- Would not take that much time since you would be sampling 9 total houses
+
+**Cons:**
+
+- Since there are 20 neighborhood clusters, 3 clusters might be to little to choose from, and might not be representative of the entire population. 
+
+
+d) Divide the city into 20 neighborhoods, randomly sample 8 neighborhoods, and then randomly sample 50 households from those neighborhoods.
+
+**Pros:** 
+
+- This sampling method would be representative of the population since, we are taking into account almost half of the clusters, and lots of samples from each 
+
+**Cons:**
+
+- This might take a long time and cost more money, since there would be a total of 400 observations in the sample
+
+c)  Sample the 200 households closest to the city council offices.
+
+**Pros:**
+
+- This would take the least amount of time, and not a lot of money 
+
+**Cons:**
+
+- This would not be representative of the population at all, since most of the people around the city council offices could be of the same socio economic status
+
+
+## Question 8 (Exercise 1.40 on Page 37): 
+
+Write your answers for question 8 here.
+
+a) **Exploratory:** Bachelor's Degree **Response:** Per Capita Income 
+
+b) 
+
+c) Write your answer for question 8c here.
+
+
+
+## Question 9 (Exercise 1.43 on Page 38): 
+
+Write your answers for question 9 here.
+
+### a) Write your answer for question 9a here.
+
+### b) Write your answer for question 9b here.
+
+### c) Write your answer for question 9c here.
+
+
+
+
+## Question 10: 
+
+Write your answers for question 10 here.
