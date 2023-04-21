@@ -21,9 +21,9 @@ library(tidyverse)
 
 Write your answer for question 1 here. Since the question has four parts, use: 
 
-a) $\frac{66 (improved)}{85 (total)} = 77.6%$
+a) $\frac{66 (improved)}{85 (total)} = 77.6\%$
 
-b) $\frac{65 (improved)}{81 (total)} = 80%$
+b) $\frac{65 (improved)}{81 (total)} = 80\%$
 
 c) The no treatment or control group had a higher percentage of patients who experience improvements with a 80% improvement
 
@@ -63,11 +63,9 @@ c)
 
 ## Question 4 (Exercise 1.12 on Page 21):  
 
-a) 
+a) Year, Amount of people in Mexico, US and Canada, who voted yes on the issues (Arms control and disarmament, Colonialism, Economic development, Human rights, Nuclear weapons and materials and Palestinian conflict)
 
-- Year
-- Percentage in the US, Mexico, Canada who agree with arms control and disarmament 
-- Percentage who agree with Colonialism
+b) Year is numerical discrete, and the rest are categorical nominal
 
 
 
@@ -82,6 +80,8 @@ b) The results of the study can't be generalized to the population because their
 
 a) We can't determine smoking causes dementia from this study, because this is an observational study, thus there can be many lurking variables that could cases the results of the survey to become skewed. Further, the sampling method for this study is a non probability sampling, thus there could be major biases in the sample since they are not being selected randomly.
 
+b) We can't generalize the results of the study the entire population because, the sample could have major biases. For example, most of the students at the University of California Berkeley could are mostly rich, and also the students are classifying themselves into two categories (low)(high), which could cause errors. 
+
 
 
 ## Question 7 (Exercise 1.38 on Page 36): 
@@ -89,81 +89,84 @@ a) We can't determine smoking causes dementia from this study, because this is a
 
 a) Randomly sample 200 household from the city. 
 
-**Pros:**
+- **Pros:**
 
-- It would be cost/time effective 
+  - It would be cost/time effective 
 
-**Cons:**
+- **Cons:**
 
-- The sample could have major bias, since there is no account for, lower and higher income houses
+  - The sample could have major bias, since there is no account for, lower and higher income houses
 
 b) Divide the city into 20 neighborhoods, and sample 10 households from each neighborhood.
 
-**Pros:**
+- **Pros:**
 
-- The sample would be representative of the population, since we are taking into account all sectors of the neighborhood 
+  - The sample would be representative of the population, since we are taking into account all sectors of the neighborhood 
 
-**Cons:**
+- **Cons:**
 
-- This would take a lot of time to do the process of separating the neighboorhod into part, might cost more money
+  - This would take a lot of time to do the process of separating the neighborhood into part, might cost more money
 
 c) Divide the city into 20 neighborhoods, randomly sample 3 neighborhoods, and then sample all households from those 3 neighborhoods.
 
-**Pros:**
+- **Pros:**
 
-- Would not take that much time since you would be sampling 9 total houses
+  - Would not take that much time since you would be sampling 9 total houses
 
-**Cons:**
+- **Cons:**
 
-- Since there are 20 neighborhood clusters, 3 clusters might be to little to choose from, and might not be representative of the entire population. 
+  - Since there are 20 neighborhood clusters, 3 clusters might be to little to choose from, and might not be representative of the entire population. 
 
 
 d) Divide the city into 20 neighborhoods, randomly sample 8 neighborhoods, and then randomly sample 50 households from those neighborhoods.
 
-**Pros:** 
+- **Pros:** 
 
-- This sampling method would be representative of the population since, we are taking into account almost half of the clusters, and lots of samples from each 
+  - This sampling method would be representative of the population since, we are taking into account almost half of the clusters, and lots of samples from each 
 
-**Cons:**
+- **Cons:**
 
-- This might take a long time and cost more money, since there would be a total of 400 observations in the sample
+  - This might take a long time and cost more money, since there would be a total of 400 observations in the sample
 
-c)  Sample the 200 households closest to the city council offices.
+e)  Sample the 200 households closest to the city council offices.
 
-**Pros:**
+- **Pros:**
 
-- This would take the least amount of time, and not a lot of money 
+  - This would take the least amount of time, and not a lot of money 
 
-**Cons:**
+- **Cons:**
 
-- This would not be representative of the population at all, since most of the people around the city council offices could be of the same socio economic status
+  - This would not be representative of the population at all, since most of the people around the city council offices could be of the same socioeconomic status
 
 
 ## Question 8 (Exercise 1.40 on Page 37): 
 
-Write your answers for question 8 here.
 
-a) **Exploratory:** Bachelor's Degree **Response:** Per Capita Income 
+a) **Exploratory:** Bachelor's Degree, **Response:** Per Capita Income 
 
-b) 
+b) As the the percent of bachelors degree in the on each counties the income per capita increases, thus the relationship is a linear positive one. We can see that most of incomes are around the 20-40k a year. 
 
-c) Write your answer for question 8c here.
-
+c) We can't conclude that having a bachelor's degree increases one's income because this is an observational study, and there could be confounder.
 
 
 ## Question 9 (Exercise 1.43 on Page 38): 
 
-Write your answers for question 9 here.
 
-### a) Write your answer for question 9a here.
+a) Whether the car was search or not, and whether the driver was arrested or not, they also had to collect the race, county, and state 
 
-### b) Write your answer for question 9b here.
+b) All of the above are categorical non ordinal
 
-### c) Write your answer for question 9c here.
-
-
+c) **Explanatory:** Race, **Response:** search rates
 
 
 ## Question 10: 
 
-Write your answers for question 10 here.
+a) Sampling the act of getting a select amount of cases out of the population, in order to save time and money.
+b) Sampling is important because if we choose our sample wisely, we can generalize that sample to the entire population. 
+c) Sampling Techniques
+- Simple Random sampling
+- Stratified sampling
+- Cluster Sampling
+- Multistage sampling
+- Convince sampling
+- Purposive sampling

@@ -1,0 +1,157 @@
+---
+title: "Homework Assignment 2"
+author: "Santiago Garcia"
+date: "April 22, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+## Include the command to load the data here!!!!
+```
+
+* * *
+
+## Question 1:  
+
+(1) Positive linear association
+(2) No association
+(3) Positive nonlinear association
+(4) Negative linear association 
+
+
+## Question 2: 
+
+Write your answers for question 2 here.  
+
+a. list 1 would have lower mean and standard deviation because the last of value of list 2 is larger than 1 which causes mean and standard deviation to increase.
+
+b. The mean in list 1 would be larger since last value is higher the last value in list 2 the mean would increase, however the standard deviation of list 2 would be greater than list 1, because the last value is farther away from list 2s mean
+
+c. The mean of list 2 would be greater than list 1 because list 2 has larger number than list 2 thus, it would have larger mean. The standard deviation would be the same since all numbers increment by 2 so they would have the same deviation from their mean. 
+
+d. both of the list would have the same mean since they all add up to the same value and have the same n value. However list 2 would have a larger standard deviation since the distribution has larger jump in between values from its mean, however list 1 has an even distribution. 
+
+
+## Question 3: 
+
+a. this graph has a symmetric distribution, and it matches with box-plot (2)
+
+b. this graph has a uniform distribution, and it matches with box-lot (3)
+
+c. this graph has a right skewed distribution, and it matches with graph (1)
+
+
+## Question 4 (Exercise 1.12 on Page 21):  
+
+a. About thirty because the midpoint would be in data point 45 which is about 50% and that lies in the 30 interval
+
+b. I would expect the mean > median because its the distribution its right skewed
+
+c. Q1 = 20
+   Q3 = 40
+   IQR = Q3 - Q1 = 20
+
+d. upper fence = Q3 + 1.5 * IQR
+               = 40 + 1.5 * 20
+               = 70
+               
+   lower fence = Q1 - 1.5 * IQR
+               = 20 - 1.5 * 20
+               = -10
+all values are withing the upper and lower fences, thus there are no outliers or unusual points 
+
+
+## Question 5:
+
+a. This sounds like it would be left skewed since there are is a big jump between 50% and 75% and towards the end there are lots of houses that are expensive. Since its left skewed the mean < median, and the median & IQR would be best to represent the data. 
+
+b. This sounds like its rights skewed since most of the prices in this country are cheap and not many are expense. Since its right skewed the mean > median, and the median & IQR would be best to represent the data.
+
+c. This data could be uniform, since most students don't drink, and only a few drink excessively, so in each given week college students would drink about the same amount, since its uniform, the best to represent is mean & SD.
+
+d. This is an symmetric distribution, most employees at the company would be earning around the average salary, not a lot would be earning much higher or much lower. mean and SD would be best to represent the data. 
+
+
+
+## Question 6 (Exercise 1.28 on Page 31): 
+
+a. The distribution of the data is right skewed, the reason we want to use the log transformed values is to a clearer insight on the lower values, we can see in the first graph, there is not clear visual difference, all the way from 60%-80%, however in the log transformed values we can see a clear difference.
+
+b. In the map its apparent in what part of the country there are the most amount of Hispanics, and in the histogram, its apparent what is the distribution of Hispanics in the U.s 
+
+c. I think they both are helpful, it depends on your questions, if your questions is where in the U.S there are the most Hispanics, then the map would be most useful, but if your questions is what is the distribution of Hispanics in the U.S the histogram would be a lot more helpful. 
+
+
+
+## Question 7 (Exercise 1.38 on Page 36): 
+
+Write your answers for question 7 here.
+
+### a) Write your answer for question 7a here.
+
+### b) Write your answer for question 7b here.
+
+### c) Write your answer for question 7c here.
+
+### d) Write your answer for question 7d here.
+
+### e) Write your answer for question 7e here.
+
+
+
+
+
+## Question 8 (Exercise 1.40 on Page 37): 
+
+Write your answers for question 8 here.
+
+### a) Write your answer for question 8a here.
+
+### b) Write your answer for question 8b here.
+
+### c) Write your answer for question 8c here.
+
+
+
+## Question 9 (Exercise 1.43 on Page 38): 
+
+Write your answers for question 9 here.
+
+### a) Write your answer for question 9a here.
+
+### b) Write your answer for question 9b here.
+
+### c) Write your answer for question 9c here.
+
+
+
+
+## Question 10: 
+
+a.
+
+mean: 36.45
+median: 32
+shape: right skewed, since mean > median
+
+b. 
+
+range: 17 62
+variance: 225.6727
+standard deviation: 15.055
+
+c.
+ 
+```{r}
+BMI <- c(25, 27, 31, 62, 33, 48, 24, 32, 17, 62, 40)
+boxplot(BMI)
+
+```
+there are no outliers in this data, we can see in the boxplot that there are not dots outside of the maxes. 
+
