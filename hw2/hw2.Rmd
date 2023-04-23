@@ -94,32 +94,32 @@ c. I think they both are helpful, it depends on your questions, if your question
 a. 372 / 910 = 40%
 b. 278 / 910 = 30%
 c. 57 / 910 = 6%
-d. 
+d. Conservation in favor: 57 / 372 = 15%
+   Morderates in favor: 120 / 363 = 33%
+   Liberal in faovr: 101 / 175 = 57%
 
-
+e. There seems to me a relationship between the political ideology and views on immigration, we see the mre liberal there is an increase in support for immigratns to apply for citizenship, thus this makes political ideology, independent and views on immigration dependent. 
 
 
 ## Question 8 (Exercise 1.40 on Page 37): 
 
-Write your answers for question 8 here.
+a) Since the new score of the make up is lower then the average, the average would decrease
 
-### a) Write your answer for question 8a here.
+b) the new average would be 73.6
 
-### b) Write your answer for question 8b here.
+new avg = ((old avg * took the exam) + make up exam score) / 25
 
-### c) Write your answer for question 8c here.
-
-
+        \= ((74 * 24) + 64) / 25
+         = 73.6
 
 ## Question 9 (Exercise 1.43 on Page 38): 
 
-Write your answers for question 9 here.
+```{r}
+data <- c(57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 88, 89, 94)
 
-### a) Write your answer for question 9a here.
+boxplot(data)
+```
 
-### b) Write your answer for question 9b here.
-
-### c) Write your answer for question 9c here.
 
 
 
