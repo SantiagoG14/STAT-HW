@@ -27,8 +27,6 @@ library(tidyverse)
 
 ## Question 2: 
 
-Write your answers for question 2 here.  
-
 a. list 1 would have lower mean and standard deviation because the last of value of list 2 is larger than 1 which causes mean and standard deviation to increase.
 
 b. The mean in list 1 would be larger since last value is higher the last value in list 2 the mean would increase, however the standard deviation of list 2 would be greater than list 1, because the last value is farther away from list 2s mean
@@ -47,7 +45,7 @@ b. this graph has a uniform distribution, and it matches with box-lot (3)
 c. this graph has a right skewed distribution, and it matches with graph (1)
 
 
-## Question 4 (Exercise 1.12 on Page 21):  
+## Question 4:  
 
 a. About thirty because the midpoint would be in data point 45 which is about 50% and that lies in the 30 interval
 
@@ -79,7 +77,7 @@ d. This is an symmetric distribution, most employees at the company would be ear
 
 
 
-## Question 6 (Exercise 1.28 on Page 31): 
+## Question 6: 
 
 a. The distribution of the data is right skewed, the reason we want to use the log transformed values is to a clearer insight on the lower values, we can see in the first graph, there is not clear visual difference, all the way from 60%-80%, however in the log transformed values we can see a clear difference.
 
@@ -101,7 +99,7 @@ d. Conservation in favor: 57 / 372 = 15%
 e. There seems to me a relationship between the political ideology and views on immigration, we see the mre liberal there is an increase in support for immigratns to apply for citizenship, thus this makes political ideology, independent and views on immigration dependent. 
 
 
-## Question 8 (Exercise 1.40 on Page 37): 
+## Question 8: 
 
 a) Since the new score of the make up is lower then the average, the average would decrease
 
@@ -109,8 +107,8 @@ b) the new average would be 73.6
 
 new avg = ((old avg * took the exam) + make up exam score) / 25
 
-        \= ((74 * 24) + 64) / 25
-         = 73.6
+        = ((74 * 24) + 64) / 25
+        = 73.6
 
 ## Question 9 (Exercise 1.43 on Page 38): 
 
@@ -142,6 +140,12 @@ c.
  
 ```{r}
 BMI <- c(25, 27, 31, 62, 33, 48, 24, 32, 17, 62, 40)
+
+mean(BMI)
+median(BMI)
+range(BMI)
+var(BMI)
+sd(BMI)
 boxplot(BMI)
 
 ```
