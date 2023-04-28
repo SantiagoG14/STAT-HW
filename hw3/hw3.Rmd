@@ -1,0 +1,44 @@
+---
+title: "Homework Assignment 2"
+author: "Santiago Garcia"
+date: "April 22, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+## Questions 1:
+
+a. Strong, it would not be reasonable to fit a linear model since relationship is not linear
+
+b. Strong, would not be reasonable to fit a linear model since a relationship is not linear
+
+c. Moderate, would be reasonable since its a linear relationship
+
+d. Weak, would be reasonable since its a linear relationship
+
+e. Weak, would be reasonable since its a linear relationship
+
+f. Moderate, would be reasonable since its a linear relationship
+
+## Question 2:
+
+a. 2
+
+b. 1
+
+c. 4
+
+d. 3
+
+## Question 3:
+
+a. It is a direct and moderate relationship 
+
+b. It would stay a direct relationship because kg to pounds its just a conversion of the unit and not does not change the variable of weight 
+
+## Question 4: 
+
+
