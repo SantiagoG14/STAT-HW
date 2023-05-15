@@ -1,0 +1,67 @@
+---
+title: "Homework Assignment 2"
+author: "Santiago Garcia"
+date: "April 22, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+## Question 1:
+
+```{r}
+# p(x < 80) 
+pnorm(80, 72.6, 4.78)
+
+# p(60 < x < 80)
+pnorm(80, 72.6, 4.78) - pnorm(60, 72.6, 4.78)
+
+# c
+qnorm(0.95, 72.6, 4.78)
+
+# p(x > 70)
+1 - pnorm(70, 72.6, 4.78)
+
+```
+
+a. p(x < 80) = 0.939203 = 93.9%
+b. p(60 < x < 80) = p(x < 80) - p(x < 60) = 0.9350083 = 93%
+c. 80.46 miles per hour
+d. p(x > 70) = 1 - p(x < 70) =  0.7067562 = 70.6%
+
+## Question 2:
+
+a. computer chips at a factory
+b. the rate of chips with severe defects
+c. 27/212 = 0.1273585 = 12.7%
+d. margin of error or standard error
+e. 
+$Z^* = Z\frac{alpha}{2}$
+$= Z0.05/2$
+$= z0.05$
+$= -1.64$
+
+$SE = Z^*\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$
+$= -1.64\sqrt{\frac{0.1273(1 - 0.12735)}{212}}$
+$\pm0.0375$
+
+f. no because this is between the confidence interval 
+g. new value would be $\pm0.0337$, the results don't change that much, since the margin of error only decreased 0.0037
+
+## Question 3:
+
+a. 
+b. I would expect it to be 
+
+## Question 4: 
+
+a. False, when using a confidence interval, we need to generalize the results to the entire population, not just to the sample
+
+b. True, this answer generalizes the confidence interval to the entire population
+
+c. True, because the sample would be from the population, thus it would be between our confidence interval 
+
+d. False, 
+
