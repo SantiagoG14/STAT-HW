@@ -1,7 +1,7 @@
 ---
-title: "Homework Assignment 2"
+title: "Homework Assignment 3"
 author: "Santiago Garcia"
-date: "April 22, 2023" 
+date: "April 29, 2023" 
 output:
   pdf_document: default
   word_document: default
@@ -15,7 +15,7 @@ a. Strong, it would not be reasonable to fit a linear model since relationship i
 
 b. Strong, would not be reasonable to fit a linear model since a relationship is not linear
 
-c. Moderate, would be reasonable since its a linear relationship
+c. Strong-moderate, would be reasonable since its a linear relationship
 
 d. Weak, would be reasonable since its a linear relationship
 
@@ -35,10 +35,81 @@ d. 3
 
 ## Question 3:
 
-a. It is a direct and moderate relationship 
+a. It is a direct linear and strong-moderate relationship between hip girth and weight, as hip girth increase weight increase and vice versa.
 
 b. It would stay a direct relationship because kg to pounds its just a conversion of the unit and not does not change the variable of weight 
 
 ## Question 4: 
+
+a. There is a direct weak-moderate relationship between calories and crabs, as calories increases carbs increases and vice versa
+
+b. explanatory is Calories and response is carbs 
+
+c. We might want to fit a regression line to these data to predict how many carbs will whether a certain food with a certain amount of calories.
+
+d. I think this data does not meet the conditions required for fitting a least squares lines, we see that the data itself has a linear relationship, and the distribution of residuals is nearly normal, however it does not have constant variability, we can see in the residuals towards the beginning the residuals are very close to the line, however as we move forther along the line the points start to get farther and farther away from the line.
+
+## Question 5:
+
+a. 
+
+x = shoulder girth
+y = height
+
+
+${\overline{x} = 107.20}$
+${S_x= 10.37}$
+
+${\overline{y} = 171.14}$
+${S_y = 9.41}$
+
+${r = 0.67}$
+
+${slope = r\frac{S_y}{S_x}}$
+${ = 0.67\frac{9.41}{10.37}}$
+${ = 0.61}$
+
+${y-intercept = \overline{y} - slope * \overline{x}}$
+${= 171.14 - (0.61 * 107.2)}$
+${= 105.97}$
+
+${\hat{height} = 105.97 + 0.61shoulder-girth}$
+
+
+
+b. Slope interpretation: A centimeter increase in shoulder-girth will cause a cm increase by in height by the value 0.61
+
+intercept interpretation: if shoulder girth is 0, then 105.97 is the mean value of height 
+
+c. ${R^2 = r^2}$
+${ = 0.45}$
+
+This implies that shoulder girth contributes 45% toward a person's height. 
+
+d. ${\hat{height} = 105.97 + 0.61(100)}$
+$= 166.97$
+The predicted height would be 166.97cm
+
+e. ${y - y_1}$
+
+${= 160 - 166.97}$
+${= -6.97}$
+
+this residual means our model overestimated the height of some with 100cm shoulder girth by 6.97cm 
+
+d. I don't think it would be appropriate to use this linear model to predict the height of this child because the value of shoulder girth 56cm is outside of our range, thus we would be extrapolating with our model
+
+## Question 5:
+
+a. ${\hat{Annual-Murder-per-Million}= -29.901 + 2.556*\%in-poverty}$
+
+b. if percent in poverty is 0 then -29.901 is the mean value of annual murders per million, this intercept does not make sense since, there can't be negative deaths 
+
+c. per every percent increase in poverty will cause an increase in murders per million by the value 2.556 and vice versa. 
+
+d. A 70.52% ${R^2}$ value implies that percent in poverty contributes for 70.52% of annual murders per million 
+
+e. Since the slope is positive $${+\sqrt{0.7052}}$$
+${r=0.834}$
 
 

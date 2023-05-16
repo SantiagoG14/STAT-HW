@@ -110,7 +110,7 @@ new avg = ((old avg * took the exam) + make up exam score) / 25
         = ((74 * 24) + 64) / 25
         = 73.6
 
-## Question 9 (Exercise 1.43 on Page 38): 
+## Question 9: 
 
 ```{r}
 data <- c(57, 66, 69, 71, 72, 73, 74, 77, 78, 78, 79, 79, 81, 81, 82, 83, 88, 89, 94)
@@ -149,5 +149,6 @@ sd(BMI)
 boxplot(BMI)
 
 ```
-there are no outliers in this data, we can see in the boxplot that there are not dots outside of the maxes. 
+
+The shape of the data is right skewed, also, there are no outliers in this data, we can see in the boxplot that there are not dots outside of the maxes. 
 

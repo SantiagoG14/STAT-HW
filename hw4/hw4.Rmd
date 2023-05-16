@@ -1,0 +1,142 @@
+---
+title: "Homework Assignment 4"
+author: "Santiago Garcia"
+date: "May 8, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+## Question 1: 
+
+a. Verbal N[151, 7]
+  Quantitative N[153, 7.67]
+  
+b. $z_{verbal} = \frac{160 - 151}{7}$
+    $= 1.286$
+    $z_{quantitative} = \frac{157 - 153}{7.67}$
+    $= 0.521$
+c. they tell us how she did on here test in a standardized data, this way we can compare both of the test results although 
+
+d. it tells us she did better on the verbal than the quantitative since the verbal z-score is higher than the quantitative 
+
+e. 
+```{r}
+# verbal percentile
+pnorm(160, 151, 7)
+
+#quantitative percentile
+pnorm(157, 153, 7.67)
+```
+verbal = 90%
+quantitative = 69.9%
+
+f. 10% of students did better than her on the verbal reasoning section, and 30.1% did better than her on the quantitative section 
+
+g. they can be wrong since they are not out of the same points, and also one section could have been harder than the other, so it would not be fair to compare just the raw scores
+
+h. if they were not nearly normal, we would not be able to use z-score since this method is can only be used for normaly distributed data
+
+## Question 2:
+
+a. 
+
+```{r}
+qnorm(0.05, 4313, 583)
+```
+**3354.05 seconds**
+
+b.
+
+```{r}
+qnorm(0.9, 5261, 807)
+```
+**6295.212 seconds**
+
+## Question 3:
+
+```{r}
+# p for a 
+pnorm(191, 187, 20.4)
+
+#p for b
+
+pnorm(196, 187, 20.4) - pnorm(176, 187, 20.4)
+
+#x for c.
+
+qnorm(0.35, 187, 20.4)
+
+#x for d.
+
+qnorm(0.65, 187, 20.4)
+
+```
+
+
+a. p(x < 191) = 57.7%
+b. p(176 < x < 196) = p(x < 196) - p(x < 176) = 37.5%
+c. 179.139 inches
+d. 194.860 inches
+
+## Question 4:
+
+```{r warning=FALSE, message=FALSE}
+library("tidyverse")
+focus <- read_csv("C:/Users/sagaa/programming/stat311/hw4/Focus.csv")
+
+ggplot(focus, aes(x = CREDITS, y = GPA)) + geom_point() + labs(x = "# of credits", y = "GPA")
+
+ggplot(focus, aes(x = CREDITS, y = GPA)) + geom_boxplot()
+
+model <- lm(GPA ~ CREDITS, focus)
+
+summary(model)
+```
+
+
+a. Credits and GPA have a weak positive linear relationship, and no outliers
+
+b. $\hat{GPA} = 2.79 + 0.0023CREDITS$
+
+c. The intercept means if credits is 0 the average GPA is 2.79, however this intercept does not make sense since if there are not credits you can't have a GPA. The slope means that per every credit increase the GPA increase by the value 0.0023 
+
+## Question 5:
+
+```{r warning=FALSE, message=FALSE}
+
+library("statsr")
+library("broom")
+
+classData <- read_csv("C:/Users/sagaa/programming/stat311/class/classData.csv")
+
+# relationship
+
+ggplot(classData, aes(x = Age, y = Credits)) + geom_point()
+
+## R^2
+
+cor(classData$Age, classData$Credits) ^ 2
+
+model <- lm(Credits ~ Age, classData)
+summary(model)
+
+
+model.aug <- augment(model)
+ggplot(model.aug, aes(x = .fitted, y = .resid)) + geom_point() + geom_hline(yintercept = 0, color = "blue") + ggtitle("Resid v. Fitted") + labs(x = "Fitted", y = "Residuals")
+
+ggplot(model.aug, aes(x = .resid)) + geom_histogram()
+
+```
+
+
+a. There is a weak linear negative relationship between age and credits 
+
+b. R^2 is 0.0637, which means that age contributes 6% toward how many credits you take
+
+c. $\hat{Credits} = 23.409 - 0.4025Age$
+The intercept means that if age is 0, then the mean credits is 23.409, however this does not make sense since someone 0 year old can't have any credits. The slope means that per every year increase in age, there will be a decrease by the value 0.4025 in credits taken. 
+
+d. Although the distribution of the data is nearly normal, there is no constant variability, we can see that towards the beginning points are a lot closer to the 0 line, however they get father apart in the mive of the graph 

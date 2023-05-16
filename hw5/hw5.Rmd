@@ -34,9 +34,13 @@ d. p(x > 70) = 1 - p(x < 70) =  0.7067562 = 70.6%
 ## Question 2:
 
 a. computer chips at a factory
+
 b. the rate of chips with severe defects
+
 c. 27/212 = 0.1273585 = 12.7%
+
 d. margin of error or standard error
+
 e. 
 $Z^* = Z\frac{alpha}{2}$
 $= Z0.05/2$
@@ -52,8 +56,18 @@ g. new value would be $\pm0.0337$, the results don't change that much, since the
 
 ## Question 3:
 
-a. 
-b. I would expect it to be 
+a. A sampling distribution 
+
+b. I would expect it to be a symmetric, the ration from students from the samples would be about the same, and there would be very few ration were the ration is lower than 16% and very low ration that are a lot higher than 16%
+
+c. $SE = \sqrt{\frac{p(1-p)}{n}}$
+   $SE = \sqrt{\frac{0.16(1-0.16)}{40}}$
+   = 0.058
+   
+d. Standard error
+   
+e. the variability will decrease since the number of samples is inversely proportional to variability 
+
 
 ## Question 4: 
 
@@ -63,5 +77,52 @@ b. True, this answer generalizes the confidence interval to the entire populatio
 
 c. True, because the sample would be from the population, thus it would be between our confidence interval 
 
-d. False, 
+d. False, this confidence interval does not get narrower the more sure we are of our estimate, the only 
+
+e. True, 
+
+## Question 5:
+
+a. $n(1-p) > 10$
+   $752(1-\frac{64}{752}) > 10$
+   $688 > 10$
+   Condition is good
+
+b. $SE = \sqrt{\frac{p(1-p)}{n}}$
+   $SE = \sqrt{\frac{0.085(1-0.085)}{752}}$
+   = 0.01
+   
+c. $Z^* = Z\frac{alpha}{2}$
+   $= Z\frac{0.1}{2}$
+   $= Z0.05$
+   = -1.64
+   
+   $\hat{p} \pm Z^*SE$
+   $0.082 \pm 0.0164$
+   (0.065, 0.098)
+   (6.5%, 9.8%) chance of user registering with the new website design
+   
+## Question 6: 
+
+$n(1-p) > 10$
+$603(1- 0.235) > 10$
+$461 > 10$
+Check is good
+
+$Z^* = Z\frac{alpha}{2}$
+$= Z\frac{0.05}{2}$
+$= Z0.025$
+= -1.96
+
+$SE = \sqrt{\frac{p(1-p)}{n}}$
+$SE = \sqrt{\frac{0.235(1-0.235)}{603}}$
+= 0.0172
+
+$\hat{p} \pm Z^*SE$
+$0.235 \pm 0.033$
+
+(0.202, 0.268)
+(20.2%, 26.%) of shoppers visit the store because of a coupon they received in the mail
+
+    
 
