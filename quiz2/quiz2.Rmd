@@ -1,0 +1,164 @@
+---
+title: "Homework Assignment 5"
+author: "Santiago Garcia"
+date: "May 15, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library("tidyverse")
+library("statsr")
+library("broom")
+lakeData <- read.csv("Lake.csv")
+```
+
+
+## Question 1:
+
+a. The dependent variable would be Mercury because these are things that are measured in the lake, and pH is calculated due to the Mercury of the lake 
+
+b. 
+
+```{r warning=FALSE}
+ggplot(lakeData, aes(x = pH, y = Mercury)) + geom_point()
+
+ggplot(lakeData, aes(x = Mercury, y = pH)) + geom_boxplot()
+```
+There is a linear moderate negative relationship between Mercury and pH, and there are not outliers 
+
+c. 
+
+```{r}
+correlation <- cor(x = lakeData$pH, y = lakeData$Mercury)
+
+determination <- correlation ^ 2
+
+```
+
+This implies that pH levels contributes 37% toward your Mercury levels in the water.
+
+d. 
+
+```{r}
+model <- lm(Mercury ~ pH, lakeData)
+model2 <- lm(pH ~ Mercury, lakeData)
+summary(model)
+```
+$\hat{Mercury} = 1.4878 - 0.1496pH$
+
+**slope:** for a unite increase in pH, it will causes a unit decrease of Mercury by the value 0.14896
+
+**intercept:** if pH is 0, then 1.4878 is the mean value of Mercury 
+
+
+
+e. 
+
+```{r}
+resid <- residuals(model)
+hist(resid)
+
+aug2 <- augment(model)
+ggplot(data = aug2) +
+    aes(x = .fitted, y = .resid) +
+    geom_point() + 
+    geom_hline(yintercept = 0, color = "blue") +
+  geom_smooth() + 
+    ggtitle("Residuals vs. Fitted") +
+    xlab("Fitted Values") +
+    ylab("Residuals")
+
+```
+Linearity: scatterplot, and r coefficient show that the relation is linear
+
+Normality: the model shows almost nearly normal residuals 
+
+Constant Variability: the graph shows that there is no constant variability
+
+
+## Question 2:
+
+a. 
+```{r}
+pnorm(81, 79, 4) - pnorm(77, 79, 4)
+```
+
+p(77 <= x <= 81) = p(x <= 81) - p(x <= 77)
+
+= 0.3829
+
+b.  
+
+since this is a normal distribution, no matter how big our sample size is, we are still going to get the same distribution of heights, our mean staying the same and also standard deviation
+
+c. 
+
+1.5 * SD = 6
+
+$SD \pm 6$ = 73, 85
+
+p(73 <= x <= 85)
+
+```{r}
+
+pnorm(85, 79, 4) - pnorm(73, 79, 4)
+```
+```{r}
+#85% cutoff
+qnorm(0.85, 79, 4)
+
+#15% cutoff
+qnorm(0.15, 79, 4)
+
+```
+
+the middle 70% cutoffs would be in between 15% and 85%, and thus are 
+
+15%: 74.8542 inches and 85%: 83.1457 inches, 85% - 15% would be the 70%
+
+
+## Question 3: 
+
+a. the parameter would be American who used wireless means for an online access 
+
+$\hat{p} = \frac{1226}{2235}$
+$= 0.5485$
+
+the statistic to measure the uncertainty of the point estimate is called the margin of error 
+
+b. 
+
+$Z^* = Z\frac{alpha}{2}$
+
+$= Z0.025$
+
+```{r}
+qnorm(0.025, 0, 1)
+```
+= -1.96
+
+$E = Z^*\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$
+$E = Z^*\sqrt{\frac{{0.5485}(1 - {0.5485})}{2235}}$
+= 0.0206
+
+$\hat{p} \pm Z^*SE$
+
+$0.5485 \pm0.0206$
+
+= (0.5279, 0.5691)
+
+We are 95% confident for all american adults who is wireless means is between 52.79% and 56.91% 
+
+c. Yes, he should be surprised because his value is not within our CI
+
+d. 
+
+$n = \frac{z^x * \hat{p}(1-\hat{p})}{e^2}$
+$n = \frac{-1.96^2 * 0.5485(1-0.5485)}{0.03^2}$
+$n = 1058$ people
+
+

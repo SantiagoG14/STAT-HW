@@ -1,7 +1,7 @@
 ---
-title: "Homework Assignment 2"
+title: "Homework Assignment 5"
 author: "Santiago Garcia"
-date: "April 22, 2023" 
+date: "May 15, 2023" 
 output:
   pdf_document: default
   word_document: default
@@ -39,17 +39,22 @@ b. the rate of chips with severe defects
 
 c. 27/212 = 0.1273585 = 12.7%
 
-d. margin of error or standard error
+d. margin of error
 
 e. 
 $Z^* = Z\frac{alpha}{2}$
+
 $= Z0.05/2$
+
 $= z0.05$
-$= -1.64$
+
+$= -1.94$
 
 $SE = Z^*\sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$
-$= -1.64\sqrt{\frac{0.1273(1 - 0.12735)}{212}}$
-$\pm0.0375$
+
+$= -1.94\sqrt{\frac{0.1273(1 - 0.12735)}{212}}$
+
+$= \pm0.0444$
 
 f. no because this is between the confidence interval 
 g. new value would be $\pm0.0337$, the results don't change that much, since the margin of error only decreased 0.0037
@@ -61,7 +66,9 @@ a. A sampling distribution
 b. I would expect it to be a symmetric, the ration from students from the samples would be about the same, and there would be very few ration were the ration is lower than 16% and very low ration that are a lot higher than 16%
 
 c. $SE = \sqrt{\frac{p(1-p)}{n}}$
+
    $SE = \sqrt{\frac{0.16(1-0.16)}{40}}$
+   
    = 0.058
    
 d. Standard error
@@ -75,50 +82,72 @@ a. False, when using a confidence interval, we need to generalize the results to
 
 b. True, this answer generalizes the confidence interval to the entire population
 
-c. True, because the sample would be from the population, thus it would be between our confidence interval 
+c. False, the confidence interval is for the entire population not for the sample mean 
 
-d. False, this confidence interval does not get narrower the more sure we are of our estimate, the only 
+d. False, this confidence interval does not get narrower the more sure we are of our estimate, in fact its gets larger and larger if we increase the confidence, because the more confident the less alpha and the lower the alpha the higher $Z^*$ is 
 
-e. True, 
+e. True, sample mean is the midpoint, and standard error is half the with of the interval
+
+f. False, we would need to quadruple it since its is inversely proportional to the margin of error 
 
 ## Question 5:
 
 a. $n(1-p) > 10$
+
    $752(1-\frac{64}{752}) > 10$
+   
    $688 > 10$
+   
    Condition is good
 
 b. $SE = \sqrt{\frac{p(1-p)}{n}}$
+
    $SE = \sqrt{\frac{0.085(1-0.085)}{752}}$
+   
    = 0.01
    
 c. $Z^* = Z\frac{alpha}{2}$
+
    $= Z\frac{0.1}{2}$
+   
    $= Z0.05$
+   
    = -1.64
    
    $\hat{p} \pm Z^*SE$
+   
    $0.082 \pm 0.0164$
+   
    (0.065, 0.098)
+   
    (6.5%, 9.8%) chance of user registering with the new website design
    
 ## Question 6: 
 
 $n(1-p) > 10$
+
 $603(1- 0.235) > 10$
+
 $461 > 10$
+
 Check is good
 
 $Z^* = Z\frac{alpha}{2}$
+
 $= Z\frac{0.05}{2}$
+
 $= Z0.025$
+
 = -1.96
 
 $SE = \sqrt{\frac{p(1-p)}{n}}$
+
 $SE = \sqrt{\frac{0.235(1-0.235)}{603}}$
+
 = 0.0172
 
 $\hat{p} \pm Z^*SE$
+
 $0.235 \pm 0.033$
 
 (0.202, 0.268)
