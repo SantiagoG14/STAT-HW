@@ -1,0 +1,325 @@
+---
+title: "Inference for Categorical Data"
+author: "STAT 311 -- Spring 2023"
+date: "`r Sys.Date()`"
+---
+
+# The Data
+
+Before beginning, we need to load any necessary packages:
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(openintro)
+library(ggplot2)
+library(infer)
+library(latex2exp)
+
+data("yrbss")
+```
+
+We will be analyzing the `yrbss` data set from the Youth Risk Behavior Surveillance System (YRBSS) survey---a survey which uses data from high school students to help discover health patterns.
+
+------------------------------------------------------------------------
+
+## Exercise 1
+
+#### What are the counts within each category for the amount of days these students have texted while driving within the past 30 days?
+
+Let's start by looking at the possible values of the `text_while_driving_30d` variable.
+
+```{r}
+(unique(yrbss$text_while_driving_30d))
+```
+
+So, essentially, this question is asking us to find the frequency of each of the above values for the `text_while_driving_30d` variable in the `yrbss` data set. We'll do this in the code chunk below.
+
+```{r}
+# output a table with the counts for each category
+yrbss %>%
+    group_by(text_while_driving_30d) %>%
+    summarize(
+        counts = n()
+    )
+```
+
+In addition to this table, it would also help to visualize these frequencies with a bar plot (not to be confused with a histogram).
+
+```{r}
+# create a plot with the counts
+ggplot(yrbss) +
+    aes(x = text_while_driving_30d) +
+    geom_bar()
+```
+
+Clearly, most of the teenagers in the survey responded either that they don't text and drive or that they don't drive at all.
+
+------------------------------------------------------------------------
+
+## Exercise 2
+
+#### What is the proportion of people who have texted while driving every day in the past 30 days and never wear helmets?
+
+Recall the below possible values for the `text_while_driving_30d` variable.
+
+```{r}
+(unique(yrbss$text_while_driving_30d))
+```
+
+Also note that the possible values of the `helmet_12m` variable are:
+
+```{r}
+(unique(yrbss$helmet_12m))
+```
+
+Based on these lists of possible values, we are looking for the proportion of observations with `text_while_driving_30d == "30"` and `helmet_12m == "never"`. As usual, we can use piping to accomplish this.
+
+```{r}
+# print the proportion who don't wear helmets and
+# always text and drive
+yrbss %>%
+    filter(
+        text_while_driving_30d == "30",
+        helmet_12m == "never"
+    ) %>%
+    summarize(
+        prop = n() / nrow(yrbss)
+    )
+```
+
+Thankfully, only a small proportion of teenagers in the sample reported always texting and driving and never wearing a helmet.
+
+------------------------------------------------------------------------
+
+# Inference on Proportions
+
+Let's narrow down our data set to only the population of interest, which is respondents who stated that they never wear a helmet. We will also create an indicator variable called `text_ind` to indicate whether the teen reported having texted every day in the past 30 days (i.e., `text_while_driving_30d == "30"`).
+
+```{r}
+yrbss.2.0 <- yrbss %>%
+    mutate(
+        text_ind = ifelse(text_while_driving_30d == "30",
+                          "yes", "no")
+    ) %>%
+    filter(
+        is.na(text_ind) == FALSE,  # missing values
+        helmet_12m == "never"      # helmet-wearers
+    )
+```
+
+We will generate confidence intervals for the proportion of non-helmet-wearers who always text and drive using inferential tools from the `infer` package.
+
+```{r}
+yrbss.2.0 %>%
+    specify(response = text_ind, success = "yes") %>%
+    generate(reps = 1000, type = "bootstrap") %>%
+    calculate(stat = "prop") %>%
+    get_ci(level = 0.95)
+```
+
+**Note:** The above code will automatically remove missing values, but it is better to just remove them beforehand usually. *However*, that does not mean you should completely omit them from your analysis.
+
+------------------------------------------------------------------------
+
+## Exercise 3
+
+#### What is the margin of error for the estimate of the proportion of non-helmet wearers that have texted while driving each day for the past 30 days based on this survey?
+
+It's not specified here, but in this case we will assume that we are using an $\alpha = 0.05$ significance level and are interested in forming 95% confidence intervals.
+
+**Recall** that for a confidence interval for a proportion, the margin of error has the equation
+
+$$
+ME = z^{\star} \times SE_{\hat{p}} = 1.96 \, \sqrt{\dfrac{p \, (1 - p)}{n}},
+$$
+
+where $p$ is being treated as the sample proportion and $\hat{p}$ is the estimate for \$p\$. This means we need to find the standard error of the estimate for $p$.
+
+```{r}
+# number of observations
+n = nrow(yrbss.2.0)
+
+# probability of success
+prop <- yrbss.2.0 %>%
+    specify(response = text_ind, success = "yes") %>%
+    calculate(stat = "prop")
+
+# compute the standard error
+se <- sqrt(prop * (1 - prop)) / sqrt(n)
+
+# compute the margin of error
+me <- qnorm(0.975) * se
+
+# print the margin of error
+mutate(me, ME = stat, stat = NULL)
+```
+
+------------------------------------------------------------------------
+
+# How does the proportion affect the margin of error?
+
+$$
+ME = 1.96 \cdot SE = 1.96 \cdot \sqrt{\dfrac{p \, (1 - p)}{n}}
+$$
+
+From the above equation, we can see that the margin of error and the population proportion are closely related. Now let's imagine that we want to examine their relationship. We can do this by creating a variable representing the margin of error at different values of $p$, as we can see from the below code.
+
+```{r}
+# set sample size equal to 1000 for now
+n <- 1000
+
+# sequence including 101 evenly spaced probability from 0 to 1
+p <- seq(from = 0, to = 1, by = 0.01)
+
+# variable representing the margin of error
+me <- 2 * sqrt(p * (1 - p) / n)
+```
+
+We can use `ggplot` to help visualize this relationship.
+
+```{r}
+# plot margin of error against population proportion
+ggplot() +
+    aes(x = p, y = me) +
+    geom_line() +
+    xlab("Population Proportion") +
+    ylab("Margin of Error")
+```
+
+To see the relationship between the sample size and the margin of error model generally, check out this [Desmos graph](https://www.desmos.com/calculator/wt7od95pks "link to Desmos") of the margin of error with an added slider for the sample size.
+
+------------------------------------------------------------------------
+
+## Exercise 5
+
+#### Describe the relationship between `p` and `me`.
+
+Based on the above plot, it appears that the margin of error has a symmetrical rounded cone shape, with larger values occurring towards population proportions closers to 0.5.
+
+#### For a given sample size, for which value of `p` is the margin of error maximized?
+
+The margin of error is maximized at $p=0.5$, regardless of sample size.
+
+------------------------------------------------------------------------
+
+# Success-Failure Condition
+
+As usual, it is important that we check our conditions to ensure we are performing valid inference. In this case, our inference has been conditioned on the assumption that $np\geq 10$ and $n(1-p)\geq 10$, where the number 10 has been somewhat arbitrarily chosen.
+
+------------------------------------------------------------------------
+
+# Comparing $n$ and $\hat{p}$
+
+------------------------------------------------------------------------
+
+## Exercise 6
+
+#### Describe the sampling distribution of sample proportions at $n=300$ and $p=0.1$. Be sure to note the center, spread, and shape.
+
+Recall that the distribution of $\hat{p}$ is approximately normal when:
+
+-   The sample size $n$ is large.
+
+-   The population proportion $p$ is not too close to 0 or 1. (This condition can make normal approximation of binomials risky sometimes since most often we will never truly know the population proportion $p$.)
+
+Given this characterization, we can write the distribution of the sample proportion $\hat{p}$ as
+
+$$
+\hat{p} \sim N \left( p, \dfrac{p(1-p)}{n} \right).
+$$
+
+Given this way of characterizing the distribution of $\hat{p}$, we can visualize how this value changes with respect to the sample size and the population proportion.
+
+In this exercise, we have been asked to consider $p=0.1$ and $n=300$. Let's plot the distribution of $\hat{p}$ using these values.
+
+```{r}
+n <- 300; p <- 0.1
+
+phat <- seq(0, 1, 1 / n)
+density <- dnorm(phat, mean = p, sd = sqrt(p*(1-p)/n))
+
+ggplot() +
+    geom_line(aes(x = phat, y = density)) +
+    xlab(TeX(r"($\widehat{p}$)")) +
+    ggtitle(TeX(r"(Distribution of $\,\widehat{p}\,$)"))
+```
+
+-   **Shape:** This distribution takes the form of a unimodal bell-curve. This is to be expected since this is a normal approximation.
+
+-   **Center:** The distribution is centered on the value of $p$ (0.1, in this case).
+
+-   **Spread:** This distribution is fairly narrow, and it looks like nearly all the values fall between 0.05 and 0.2.
+
+------------------------------------------------------------------------
+
+## Exercise 7
+
+#### How does the shape, center, and spread of the sampling distribution vary as $p$ changes?
+
+Let's examine when happens when we change the value of $p$. We will use the same code as in Exercise 6, but this time we will change the value of $p$.
+
+```{r, echo=FALSE}
+n <- 300
+p1 <- 0.1; p2 <- 0.5; p3 <- 0.9
+
+phat <- seq(0, 1, 1 / n)
+d1 <- dnorm(phat, mean = p1, sd = sqrt(p1*(1-p1)/n))
+d2 <- dnorm(phat, mean = p2, sd = sqrt(p2*(1-p2)/n))
+d3 <- dnorm(phat, mean = p3, sd = sqrt(p3*(1-p3)/n))
+
+ggplot() +
+    geom_line(aes(x = phat, y = d1, 
+                  color = paste0("p = ", p1))) +
+    geom_line(aes(x = phat, y = d2, 
+                  color = paste0("p = ", p2))) +
+    geom_line(aes(x = phat, y = d3, 
+                  color = paste0("p = ", p3))) +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 0) +
+    xlab(TeX(r"($\widehat{p}$)")) +
+    ylab("Density") + 
+    ggtitle(TeX(r"(Distribution of $\,\widehat{p}$)")) +
+    labs(color = "Population Proportion")
+```
+
+As the value of $p$ becomes closer to 0.5, the standard deviation seems to increase, while values of $p$ near 0 and 1 yield narrower, taller curves.
+
+**Note:** A narrower, taller curve indicates that the values are densely packed near the center of the distribution.
+
+------------------------------------------------------------------------
+
+## Exercise 8
+
+#### How does $n$ appear to affect the distribution of $\hat{p}$?
+
+As $n \rightarrow \infty$ , the standard deviation of $\hat{p}$ decreases. Looking at the equation for the standard deviation,
+
+$$
+\sigma = \sqrt{\dfrac{p (1 - p)}{n}},
+$$
+
+this should make sense. This is because the fact that the sample size $n$ is in the denominator indicates that as the sample size becomes larger, the quantity $\sigma$ will naturally become smaller. This is also easy to see if we use the above method to plot the distribution of $\hat{p}$, keeping the value of $p$ constant while changing the value of $n$.
+
+```{r, echo=FALSE}
+n1 <- 25; n2 <- 50; n3 <- 250
+p <- 0.5
+
+phat <- seq(0, 1, 1 / n)
+d1 <- dnorm(phat, mean = p, sd = sqrt(p*(1-p)/n1))
+d2 <- dnorm(phat, mean = p, sd = sqrt(p*(1-p)/n2))
+d3 <- dnorm(phat, mean = p, sd = sqrt(p*(1-p)/n3))
+
+ggplot() +
+    geom_line(aes(x = phat, y = d1, 
+                  color = paste0("n = ", n1))) +
+    geom_line(aes(x = phat, y = d2, 
+                  color = paste0("n = ", n2))) +
+    geom_line(aes(x = phat, y = d3,
+                  color = paste0("n = ", n3))) +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 0) +
+    xlab(TeX(r"($\widehat{p}$)")) +
+    ylab("Density") + 
+    ggtitle(TeX(r"(Distribution of $\,\widehat{p}$)")) +
+    labs(color = "Population Proportion")
+```

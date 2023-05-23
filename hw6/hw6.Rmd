@@ -1,0 +1,178 @@
+---
+title: "Homework Assignment 6"
+author: "Santiago Garcia"
+date: "May 22, 2023" 
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+## Question 1 (5.16)
+
+a. 
+
+- **Alternative:** Has the calorie intake changed from 1100 since they started putting calorie counts in each item in the restaurant $H_a: p \neq 0.5$
+
+- **Null:** has the calorie intake stayed the same every since they started putting calorie counts in each item in the restaurants  $H_o: p =  0.5$
+
+b.
+
+- **Alternative:** On average do more or less than 70& of Wisconsin residents drink alcohol $H_a: p \neq 0.7$
+
+- **Null:** Do 70% of Wisconsin residents drink alcohol $H_o: p = 0.7$
+
+## Question 2 (5.25)
+
+a. Does the anti depressants effective at help Diana with her Symptoms?
+
+b. Type 1 error would be that the drug is helping her while in fact it isn't 
+
+b. Type 2 error would be that stating that the drug does not help her, while in fact it is helping her
+
+## Question 3 (5.30)
+
+a. True, our 95% percent confidence interval is also within our 99%, if we are 99% sure then that means we are including that 95% percent in our statement 
+
+b. False, the probability of causing a type 1 error is alpha thus, they have a direct relationship as alhpa increases the more likely we are to commit a type error, not the way around
+
+c. False, If we fail to reject $H_0$ this means that the true population proportion is 0.5
+
+d. True, 
+
+## Question 4 (6.4)
+
+a. 
+
+$pn >= 10 \\0.25 * 12 >= 10 \\ 3 >= 10$
+
+b. True
+
+Checks for normal distribution:
+
+$np >= 10 \\ 0.25 * 40 >= 10 \\ 10 >=10 \\ True$
+$n(1- p) >= 10 \\ = 40(1-0.25 >= 10) \\ = 30 >= 10 \\ True$
+
+This sample size would probably gives us a normal distribution for sample proportion
+
+c. False
+
+$\hat{p} \pm cv * SE$
+$0.25 \pm 1.96 * 0.12$
+(0.13, 0.37)
+
+the value of 20% of is within our confidence interval
+
+d. False
+
+$\hat{p} \pm cv * SE$
+$0.25 \pm 0.0693$
+(0.1807, 0.2193)
+
+the value of 20% is within our confidence interval 
+
+e. False
+
+$SE = \frac{\sqrt{\hat{p}(1 - \hat{p})}}{\sqrt{n}}$
+
+if you triple the sample size it will reduce the standard error by $\frac{1}{\sqrt{3}}$, in order to reduce standard error by a third you would need to multiple sample size by 9
+
+## Question 5 (6.10)
+
+a. 61% is a statistic since they are getting the results froma survey 
+
+b. 
+
+$\hat{p} \pm cv * SE$
+$0.61 \pm 0.0123$
+
+(0.5977, 0.6223) We are 95% certain that between 59.77% and 62.23% of U.S residents think the use of marijuana should be made legal
+
+c. 
+
+$np >= 10$
+$962.58 >= 10$ True
+
+$n(1-p) >= 10$
+$615.42 >= 10$ True 
+
+The data pass the normal distribution checks, thus is should follow a normal distribution or nearly normal
+
+
+d. 
+
+$H_o: p <= 0.5$
+$H_a: p > 0.5$
+
+$Z = \frac{\hat{p} - p_o}{SE}$
+$Z = 8.7393$
+
+p(Z > z)
+1 - p(z < 8.7393)
+
+```{r}
+1 - pnorm(9.73923)
+```
+
+p <= a
+
+0 <= 0.5 (True)
+
+We reject $H_o$ at a 5% significance, there is enough evidence to believe that the majority of Americans believe that marijuana should be made legal the United States. 
+
+
+## Question 6 (6.12)
+
+a.
+
+$H_o: p >= 0.5$
+$H_a: p < 0.5$
+
+$Z = \frac{\hat{p} - p_o}{SE}$
+$Z = -0.72$
+
+p(Z < z)
+
+p(z < -0.7277)
+
+```{r}
+pnorm(-0.7277)
+```
+$P_{val} > \alpha$
+$ 0.233 > 0.05$
+
+We fail to reject $H_o$, thus there is not enough evidence to prove that a minority of Americans that did not go to college was because they could not afford it 
+
+b. I would expect the value of 0.5 to be in our confidence interval because we fail to reject $H_o$ thus this means that our proportion is going to contain values of 0.5 or more 
+
+## Question 7 (6.14)
+
+a. 
+
+$\hat{p} \pm cv * SE$
+$0.48 \pm 1.64 * 0.0264$
+
+(0.4536, 0.5233), We are 90% confident that between 45.36% and 52.33% of Americans that did not go to college was because they could not afford it. 
+
+b. 
+
+$n = \frac{CV^2 X \hat{p}(1-\hat{p})}{E^2}$
+
+$= \frac{1.64^2 X 0.48(1-0.48)}{0.015^2}$
+
+= 2983.66293
+
+We need a sample size of **2984** to have a margin of error of 1.5%
+
+## Question 8 (6.16)
+
+a. 
+
+$n = \frac{CV^2 X \hat{p}(1-\hat{p})}{E^2}$
+$= \frac{1.96^2 X 0.61(1-0.61)}{0.02^2}$
+
+= 2284.7916
+
+We need a to survey **2285** in order to get a margin error of 2% 
+
